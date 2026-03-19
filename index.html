@@ -1,1 +1,367 @@
-<h1> Nisar karimzai </h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nisar Karimzai | Biography</title>
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --surface: #ffffff;
+        --text: #182230;
+        --muted: #5d6b82;
+        --line: #dde5f0;
+        --accent: #244c8f;
+        --accent-soft: #eef4ff;
+        --shadow: 0 18px 50px rgba(18, 31, 53, 0.1);
+        --radius: 24px;
+        --max: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: linear-gradient(180deg, #f9fbff 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      code {
+        background: #f1f5fb;
+        padding: 0.15rem 0.35rem;
+        border-radius: 6px;
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 0.92em;
+      }
+
+      .container {
+        width: min(100% - 2rem, var(--max));
+        margin: 0 auto;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 3rem 0;
+      }
+
+      .hero {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 0.95fr 1.25fr;
+        gap: 2rem;
+        align-items: stretch;
+      }
+
+      .photo-panel,
+      .info-panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .photo-panel {
+        padding: 1.5rem;
+        display: flex;
+        align-items: stretch;
+        min-height: 720px;
+      }
+
+      .photo-frame {
+        flex: 1;
+        border-radius: 20px;
+        overflow: hidden;
+        background: linear-gradient(180deg, #f8fbff 0%, #eef3fa 100%);
+        min-height: 100%;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .info-panel {
+        padding: 2.3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 720px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        width: fit-content;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 5vw, 4.2rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        margin-bottom: 1rem;
+      }
+
+      .lead {
+        font-size: 1.08rem;
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+        max-width: 60ch;
+      }
+
+      .bio {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+      }
+
+      .bio p {
+        color: #2a3445;
+        font-size: 1rem;
+      }
+
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+      }
+
+      .highlight-card {
+        padding: 1rem 1.1rem;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: #fbfdff;
+      }
+
+      .highlight-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .highlight-card p {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .quote {
+        padding: 1.15rem 1.2rem;
+        border-left: 4px solid var(--accent);
+        background: #f8fbff;
+        border-radius: 16px;
+        color: #324055;
+        margin-bottom: 1.8rem;
+        font-size: 0.98rem;
+      }
+
+      .actions {
+        display: flex;
+        gap: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 600;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .button.primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 12px 26px rgba(36, 76, 143, 0.2);
+      }
+
+      .button.secondary {
+        background: #fff;
+        color: var(--accent);
+        border: 1px solid var(--line);
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 960px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .photo-panel,
+        .info-panel {
+          min-height: auto;
+        }
+
+        .photo-frame {
+          min-height: 420px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 1.2rem 0;
+        }
+
+        .photo-panel,
+        .info-panel {
+          padding: 1.15rem;
+        }
+
+        .highlights {
+          grid-template-columns: 1fr;
+        }
+
+        .actions {
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="container">
+        <section class="hero">
+          <aside class="photo-panel">
+            <div class="photo-frame">
+              <img
+                src="profile.jpg"
+                alt="Nisar Karimzai"
+                class="profile-image"
+              />
+            </div>
+          </aside>
+
+          <section class="info-panel">
+            <span class="eyebrow">Professional Biography</span>
+            <h1>Nisar Karimzai</h1>
+            <p class="lead">
+              Business administration professional with more than 19 years of
+              diverse experience across government ministries, private
+              enterprises, and nongovernmental organizations.
+            </p>
+
+            <div class="bio">
+              <p>
+                Nisar Karimzai is a seasoned professional whose career reflects
+                long-term dedication to administration, organizational support,
+                and institutional growth. Over the years, he has built a strong
+                reputation for reliability, leadership, and adaptability while
+                working in a variety of professional environments.
+              </p>
+              <p>
+                His background spans public service, private sector operations,
+                and nonprofit work, giving him a broad understanding of how
+                organizations function across different structures and missions.
+                This experience has allowed him to contribute effectively in
+                roles that require coordination, communication, problem-solving,
+                and a steady professional presence.
+              </p>
+              <p>
+                With nearly two decades of experience, he brings both practical
+                knowledge and a mature perspective to every responsibility he
+                takes on. His professional journey represents commitment,
+                resilience, and a clear understanding of administrative
+                excellence.
+              </p>
+            </div>
+
+            <div class="highlights">
+              <div class="highlight-card">
+                <h3>Years of Experience</h3>
+                <p>
+                  19+ years of professional experience in diverse organizational
+                  settings.
+                </p>
+              </div>
+              <div class="highlight-card">
+                <h3>Sector Exposure</h3>
+                <p>
+                  Experienced across government, private enterprise, and
+                  nongovernmental organizations.
+                </p>
+              </div>
+              <div class="highlight-card">
+                <h3>Core Strengths</h3>
+                <p>
+                  Administration, coordination, communication, dependability,
+                  and professional leadership.
+                </p>
+              </div>
+              <div class="highlight-card">
+                <h3>Professional Approach</h3>
+                <p>
+                  Known for consistency, adaptability, and a thoughtful approach
+                  to organizational work.
+                </p>
+              </div>
+            </div>
+
+            <div class="quote">
+              A professional profile built on experience, discipline, and the
+              ability to serve effectively across multiple sectors.
+            </div>
+
+            <div class="actions">
+              <a
+                class="button primary"
+                href="https://www.linkedin.com/in/nisar-karimzai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View LinkedIn</a
+              >
+              <a class="button secondary" href="#" onclick="window.print()"
+                >Print This Page</a
+              >
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
